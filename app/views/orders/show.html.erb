@@ -6,14 +6,32 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    
     <p>Receipt sent to: <%= @order.email %> </p>
     <p>Total cost was: $<%= (@order.total_cents * 0.01).round(2) %> </p>
-    <% @order.line_items.each do |item| %>
-      <%= render 'line_item', product: item.product, quantity: item.quantity %>
-    <% end %>
+
+    # Lookings into app/models/order.rb (this is where you find line_items - which represents the order) 
+    # line 27 - this will render from app/orders/_line_item.html.erb
+
+    <div class="panel panel-default items">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2">Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.line_items.each do |item| %>
+            <div class="products">
+              <%= render 'line_item', product: item.product, quantity: item.quantity%>
+            </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
