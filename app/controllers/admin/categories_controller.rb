@@ -3,7 +3,8 @@ class Admin::CategoriesController < ApplicationController
   http_basic_authenticate_with name: 'Jungle', password: 'Book'
 
   def index
-    @categories = Category.order(id: :desc).all
+    @categories = Category.all
+    # @categories = Category.order(id: :desc).all
   end
 
   def new
