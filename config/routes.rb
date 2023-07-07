@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :about, only: [:index]
   # get '/about', to: 'about#index', as: 'about'
 
+  resources :users, only: [:new, :create]
+
+  resources :sessions, only: [:new, :create, :destroy]
+
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
