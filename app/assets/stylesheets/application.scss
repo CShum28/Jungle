@@ -111,3 +111,15 @@ form.button_to {
 .text-danger {
   color: #f38792 !important;
 }
+
+.user-auth {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.user-auth a {
+  text-decoration: none;
+  margin: 0 20px;
+}

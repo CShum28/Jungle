@@ -13,11 +13,13 @@
 
   <%= render 'layouts/top_nav' %>
 
-  <% if current_user %>
-   Signed in as <%= current_user.email %> | <%= link_to "Logout", session_path(current_user), method: :delete %>
-  <% else %>
-    <li><%= link_to 'Sign In', new_session_path %></li></li> <li><%= link_to 'Sign Up', new_user_path %></li> 
-  <% end %>
+  <div class="user-auth">
+    <% if current_user %>
+     Signed in as <%= current_user.email %> | <%= link_to "Logout", session_path(current_user), method: :delete %>
+    <% else %>
+      <li><%= link_to 'Sign In', new_session_path %></li></li> <li><%= link_to 'Sign Up', new_user_path %></li>
+    <% end %>
+  </div>
 
   <main class="container">
     <%= yield %>
